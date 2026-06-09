@@ -3,24 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XCITY</title>
-    <link rel="stylesheet" href="style.css">
+    <title>XCITY 官方網站</title>
+    <style>
+        /* ==========================================
+           1. CSS 樣式表
+           ========================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #222222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 頂部導覽列 */
+        .site-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+            padding: 18px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-fallback {
+            font-size: 30px;
+            font-weight: 900;
+            color: #e62328;
+            letter-spacing: 1px;
+            line-height: 50px;
+            font-style: italic;
+        }
+
+        /* 主內容區 */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome-section h1 {
+            font-size: 36px;
+            color: #111111;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .welcome-section p {
+            color: #666666;
+            font-size: 18px;
+        }
+
+        /* 🎬 頂部主要影片區塊樣式（優化本地影片外觀） */
+        .hero-video-section {
+            width: 90%;
+            max-width: 960px; /* 控制影片在電腦版的最大寬度 */
+            margin: 0 auto 60px auto; /* 與下方跑馬燈拉開 60px 距離 */
+        }
+
+        .video-wrapper {
+            width: 100%;
+            border-radius: 16px; /* 圓角效果 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 質感陰影 */
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 跑馬燈核心樣式（360px 放大版、慢速平穩） */
+        .marquee-section {
+            width: 100%;
+            background-color: #fbfbfb;
+            padding: 50px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scrollMarquee 40s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            width: 360px; 
+            margin: 0 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .marquee-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(230, 35, 40, 0.1);
+            border-color: #f1d7d7;
+        }
+
+        .item-image-box {
+            width: 100%;
+            height: 210px; 
+            background-color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .item-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .item-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #333333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.3s ease;
+        }
+
+        .marquee-item:hover .item-title {
+            color: #e62328;
+        }
+
+        /* 下方內容格線區 */
+        .custom-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 80px auto 40px auto;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #111111;
+            margin-bottom: 30px;
+            border-left: 4px solid #e62328;
+            padding-left: 12px;
+            font-weight: bold;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-card {
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            padding: 25px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .grid-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 12px;
+            background-color: #fff0f0;
+            color: #e62328;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .grid-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #222222;
+        }
+
+        .grid-card p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
 
     <header class="site-header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="images/logo.png" alt="XCITY" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="logo-fallback">XCITY</span>
+                <img src="images/logo.png" alt="XCITY" class="site-logo" style="display:none;" onerror="this.style.display='none';">
+                <span class="logo-fallback">X CITY</span>
             </div>
         </div>
     </header>
 
     <main class="main-content">
+        
         <section class="welcome-section">
             <h1>歡迎來到 XCITY</h1>
-            <p>精彩豐富的數位內容平台，帶給您全新的視覺與感官體驗。</p>
+            <p>精彩豐富的 Xcity，帶給您全新的視覺與感官體驗。</p>
+        </section>
+
+        <section class="hero-video-section">
+            <div class="video-wrapper">
+                <video src="images/promo-video.mp4" autoplay muted loop playsinline></video>
+            </div>
         </section>
 
         <section class="marquee-section">
@@ -28,8 +266,89 @@
                 <div class="marquee-track" id="marqueeTrack"></div>
             </div>
         </section>
+
+        <section class="custom-section">
+            <h2 class="section-title">最新消息</h2>
+            
+            <div class="grid-container">
+                <div class="grid-card">
+                    <span class="card-tag">NOTICE</span>
+                    <h3>XCITY 日本正統平台進軍台灣</h3>
+                    <p>將日本最頂級的視覺饗宴完整搬到台灣，今日起全面開放高畫質的內容</p>
+                </div>
+
+                <div class="grid-card">
+                    <span class="card-tag">PROJECT</span>
+                    <h3>超過十萬部高畫質片源天天更新</h3>
+                    <p>海量頂級視覺饗宴全面解鎖！每日準時上架最新內容，流暢高畫質搭配多元主題，滿足你對極致娛樂的挑剔渴望</p>
+                </div>
+
+                <div class="grid-card">
+                    <span class="card-tag">EVENT</span>
+                    <h3>註冊會員馬上享有三十天免費觀看</h3>
+                    <p>現在加入會員，立刻免費暢享全站付費內容 30 定。</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        /* ==========================================
+           2. JavaScript 內容配置區（整合您的點擊連結）
+           ========================================== */
+        const marqueeData = [
+            {
+                title: "官方網站", 
+                imageUrl: "", 
+                linkUrl: "https://tc.xcity.jp/main"
+            },
+            {
+                title: "手刀註冊",
+                imageUrl: "",
+                linkUrl: "https://regist.xcity.jp/t-chinese/member/login.php"
+            },
+            {
+                title: "最新活動",
+                imageUrl: "",
+                linkUrl: "https://www.instagram.com/xcity.tw"
+            },
+            {
+                title: "女優名艦",
+                imageUrl: "",
+                linkUrl: "https://tc.xcity.jp/idol"
+            },
+            {
+                title: "會員制度說明",
+                imageUrl: "",
+                linkUrl: "https://tc.xcity.jp/help/membership"
+            }
+        ];
+
+        function initMarquee() {
+            const track = document.getElementById('marqueeTrack');
+            if (!track) return;
+
+            function createItemHtml(item, index) {
+                const placeholderImg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 360 210'><defs><linearGradient id='g${index}' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23f9f9f9'/><stop offset='100%' stop-color='%23e9e9e9'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g${index})'/><text x='50%' y='55%' font-size='16' font-weight='bold' text-anchor='middle' fill='%23e62328' opacity='0.7'>XCITY ITEM 0${index + 1}</text></svg>`;
+                const imgUrl = item.imageUrl || placeholderImg;
+
+                return `
+                    <a href="${item.linkUrl}" class="marquee-item" target="_blank">
+                        <div class="item-image-box">
+                            <img src="${imgUrl}" alt="${item.title}">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-title">${item.title}</div>
+                        </div>
+                    </a>
+                `;
+            }
+
+            const originalHtml = marqueeData.map((item, idx) => createItemHtml(item, idx)).join('');
+            track.innerHTML = originalHtml + originalHtml;
+        }
+
+        document.addEventListener('DOMContentLoaded', initMarquee);
+    </script>
 </body>
 </html>
