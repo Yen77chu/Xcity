@@ -44,6 +44,14 @@
             align-items: center;
         }
 
+        /* 💡 真正的圖片 Logo 樣式 */
+        .site-logo {
+            height: 100%;
+            max-height: 50px;
+            display: block;
+            object-fit: contain;
+        }
+
         .logo-fallback {
             font-size: 30px;
             font-weight: 900;
@@ -75,25 +83,26 @@
             font-size: 18px;
         }
 
-        /* 🎬 頂部主要影片區塊樣式（優化本地影片外觀） */
+        /* 🎬 頂部主要影片區塊樣式（修正：放大且自動符合影片比例） */
         .hero-video-section {
             width: 90%;
-            max-width: 960px; /* 控制影片在電腦版的最大寬度 */
-            margin: 0 auto 60px auto; /* 與下方跑馬燈拉開 60px 距離 */
+            max-width: 1200px; /* 💡 從 960px 放大到 1200px，讓畫面更大氣 */
+            margin: 0 auto 60px auto;
         }
 
         .video-wrapper {
             width: 100%;
-            border-radius: 16px; /* 圓角效果 */
+            border-radius: 16px; /* 圓角 */
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 質感陰影 */
             overflow: hidden;
-            background-color: #000000;
+            background-color: #ffffff; /* 💡 背景改為白底，避免黑邊干擾 */
         }
 
         .video-wrapper video {
             width: 100%;
+            height: auto; /* 💡 自動符合你影片原汁原味的尺寸與長寬比 */
             display: block;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         /* 跑馬燈核心樣式（360px 放大版、慢速平穩） */
@@ -242,8 +251,8 @@
     <header class="site-header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="images/logo.png" alt="XCITY" class="site-logo" style="display:none;" onerror="this.style.display='none';">
-                <span class="logo-fallback">X CITY</span>
+                <img src="images/logo.png" alt="XCITY" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="logo-fallback" style="display:none;">X CITY</span>
             </div>
         </div>
     </header>
@@ -286,7 +295,7 @@
                 <div class="grid-card">
                     <span class="card-tag">EVENT</span>
                     <h3>註冊會員馬上享有三十天免費觀看</h3>
-                    <p>現在加入會員，立刻免費暢享全站付費內容 30 定。</p>
+                    <p>現在加入會員，立刻免費暢享全站付費內容 30 天。</p>
                 </div>
             </div>
         </section>
@@ -294,7 +303,7 @@
 
     <script>
         /* ==========================================
-           2. JavaScript 內容配置區（整合您的點擊連結）
+           2. JavaScript 內容配置區
            ========================================== */
         const marqueeData = [
             {
