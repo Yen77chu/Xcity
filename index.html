@@ -25,17 +25,21 @@
         .site-header {
             background-color: #ffffff;
             border-bottom: 1px solid #eeeeee;
-            padding: 18px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
+        /* 💡 修正：導覽列內部改成 flex 兩端對齊，把 Logo 放左邊，Tabs 放右邊 */
         .header-container {
             width: 90%;
             max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo-area {
@@ -44,7 +48,7 @@
             align-items: center;
         }
 
-        /* 💡 真正的圖片 Logo 樣式 */
+        /* 真正的圖片 Logo 樣式 */
         .site-logo {
             height: 100%;
             max-height: 50px;
@@ -59,6 +63,34 @@
             letter-spacing: 1px;
             line-height: 50px;
             font-style: italic;
+        }
+
+        /* 💡 新增：右側導覽 Tabs 樣式群組 */
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* Tabs 之間的行銷黃金間距 */
+        }
+
+        .nav-tab {
+            text-decoration: none;
+            color: #444444;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 8px 12px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* 滑鼠移上去時，文字變品牌紅，底下跑出紅線 */
+        .nav-tab:hover {
+            color: #e62328;
+            border-bottom: 2px solid #e62328;
+        }
+
+        /* 特別醒目的註冊 Tab 樣式（選做，目前維持統一質感） */
+        .nav-tab.highlight {
+            color: #e62328;
         }
 
         /* 主內容區 */
@@ -233,7 +265,7 @@
             margin-bottom: 14px;
         }
 
-        /* 💡 最新消息卡片標題字體放大 */
+        /* 最新消息卡片標題字體放大 */
         .grid-card h3 {
             font-size: 22px;
             margin-bottom: 12px;
@@ -242,7 +274,7 @@
             line-height: 1.4;
         }
 
-        /* 💡 最新消息卡片內文字體放大 */
+        /* 最新消息卡片內文字體放大 */
         .grid-card p {
             font-size: 16px;
             color: #555555;
@@ -294,16 +326,37 @@
             transform: scale(1.05); 
             box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         }
+
+        /* RWD 手機版導覽列自適應優化 */
+        @media (max-width: 768px) {
+            .header-nav {
+                gap: 15px;
+            }
+            .nav-tab {
+                font-size: 14px;
+                padding: 6px 4px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- 頂部導覽列（💡 整合右側經典 Tabs 功能選單） -->
     <header class="site-header">
         <div class="header-container">
+            <!-- 左側 Logo 區 -->
             <div class="logo-area">
                 <img src="logo.png" alt="XCITY" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span class="logo-fallback" style="display:none;">X CITY</span>
             </div>
+            
+            <!-- 💡 右側 Tabs 選單區：精準導流核心頁面 -->
+            <nav class="header-nav">
+                <a href="https://tc.xcity.jp/main" class="nav-tab" target="_blank">官方網站</a>
+                <a href="https://regist.xcity.jp/t-chinese/member/login.php" class="nav-tab highlight" target="_blank">手刀註冊</a>
+                <a href="https://www.instagram.com/xcity.tw" class="nav-tab" target="_blank">最新活動</a>
+                <a href="https://tc.xcity.jp/idol" class="nav-tab" target="_blank">女優名艦</a>
+            </nav>
         </div>
     </header>
 
@@ -350,6 +403,7 @@
             </div>
         </section>
 
+        <!-- 最底部的強力行動呼籲 CTA 區塊 -->
         <section class="cta-section">
             <div class="cta-container">
                 <h2>準備好探索極致的娛樂饗宴了嗎？</h2>
@@ -366,22 +420,22 @@
         const marqueeData = [
             {
                 title: "官方網站", 
-                imageUrl: "", 
+                imageUrl: "https://i.meee.com.tw/KrMgCIJ.jpg", 
                 linkUrl: "https://tc.xcity.jp/main"
             },
             {
                 title: "手刀註冊",
-                imageUrl: "",
+                imageUrl: "https://i.meee.com.tw/sNcTuKH.png",
                 linkUrl: "https://regist.xcity.jp/t-chinese/member/login.php"
             },
             {
                 title: "最新活動",
-                imageUrl: "",
-                linkUrl: "https://www.instagram.com/xcity.tw"
+                imageUrl: "https://i.meee.com.tw/Ij4ffT2.jpg",
+                linkUrl: "https://xcity.jp/event/maisonx/"
             },
             {
                 title: "女優名艦",
-                imageUrl: "",
+                imageUrl: "https://i.meee.com.tw/7kj1j8n.png",
                 linkUrl: "https://tc.xcity.jp/idol"
             },
             {
