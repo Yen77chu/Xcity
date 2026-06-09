@@ -168,8 +168,9 @@
             100% { transform: translateX(-50%); }
         }
 
-        .marquee-item {
-    width: 420px; /* 💡 從 360px 放大到 420px，讓橫圖更好舒展 */
+.marquee-item {
+    width: 380px; 
+    height: 480px; /* 💡 統一固定卡片高度（大格） */
     margin: 0 20px;
     background: #ffffff;
     border-radius: 12px;
@@ -177,7 +178,9 @@
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex; /* 💡 改用 flex 排版 */
+    flex-direction: column; /* 💡 讓內容從上往下排 */
+    justify-content: space-between; /* 💡 關鍵：把圖片推在最上，文字死死壓在最下面 */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
@@ -188,18 +191,21 @@
             border-color: #f1d7d7;
         }
 
-        .item-image-box {
+       .item-image-box {
     width: 100%;
-    height: auto; /* 💡 砍掉 210px，改成 auto 讓它根據圖片比例自動拉伸 */
+    height: 380px; /* 💡 固定圖片區域高度，下方留給文字 */
     background-color: #f5f5f5;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item-image-box img {
     width: 100%;
-    height: auto; /* 💡 改成 auto */
-    display: block; /* 💡 確保沒有古怪的下邊緣留白 */
-    object-fit: normal; /* 💡 恢復正常顯示，絕對不允許任何裁切！ */
+    height: 100%;
+    object-fit: contain; /* 💡 完整保留全圖不切圖！有空隙的地方會用淡灰色背景補滿，不突兀 */
+    display: block;
 }
 
         .item-info {
