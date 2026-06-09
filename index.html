@@ -6,7 +6,7 @@
     <title>XCITY 官方網站</title>
     <style>
         /* ==========================================
-           1. CSS 樣式表
+           1. CSS 樣式表 (尊爵暗黑版)
            ========================================== */
         * {
             box-sizing: border-box;
@@ -15,24 +15,24 @@
         }
 
         body {
-            background-color: #ffffff;
-            color: #222222;
+            background-color: #121212; /* 💡 翻轉：極致深黑背景 */
+            color: #eeeeee; /* 💡 翻轉：明亮淺灰文字，在黑底上更好讀 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             overflow-x: hidden;
         }
 
         /* 頂部導覽列 */
         .site-header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #eeeeee;
+            background-color: #121212; /* 💡 翻轉：深黑導覽列 */
+            border-bottom: 1px solid #222222; /* 💡 低調暗色細邊框 */
             padding: 15px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* 加深陰影，增添層次感 */
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        /* 💡 修正：導覽列內部改成 flex 兩端對齊，把 Logo 放左邊，Tabs 放右邊 */
+        /* 導覽列內部改成 flex 兩端對齊，把 Logo 放左邊，Tabs 放右邊 */
         .header-container {
             width: 90%;
             max-width: 1400px;
@@ -65,7 +65,7 @@
             font-style: italic;
         }
 
-        /* 💡 新增：右側導覽 Tabs 樣式群組 */
+        /* 右側導覽 Tabs 樣式群組 */
         .header-nav {
             display: flex;
             align-items: center;
@@ -74,7 +74,7 @@
 
         .nav-tab {
             text-decoration: none;
-            color: #444444;
+            color: #cccccc; /* 💡 翻轉：亮灰色，提升黑底暗視效 */
             font-size: 16px;
             font-weight: 600;
             padding: 8px 12px;
@@ -88,7 +88,7 @@
             border-bottom: 2px solid #e62328;
         }
 
-        /* 特別醒目的註冊 Tab 樣式（選做，目前維持統一質感） */
+        /* 特別醒目的註冊 Tab 樣式 */
         .nav-tab.highlight {
             color: #e62328;
         }
@@ -105,13 +105,13 @@
 
         .welcome-section h1 {
             font-size: 36px;
-            color: #111111;
+            color: #ffffff; /* 💡 純白醒目大標 */
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
 
         .welcome-section p {
-            color: #666666;
+            color: #aaaaaa; /* 💡 優雅副標淡灰 */
             font-size: 18px;
         }
 
@@ -125,9 +125,9 @@
         .video-wrapper {
             width: 100%;
             border-radius: 16px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6); /* 強化影片電影感背光陰影 */
             overflow: hidden;
-            background-color: #ffffff; 
+            background-color: #000000; /* 💡 影片載入底色改純黑 */
         }
 
         .video-wrapper video {
@@ -140,10 +140,10 @@
         /* 跑馬燈核心樣式 */
         .marquee-section {
             width: 100%;
-            background-color: #fbfbfb;
+            background-color: #1a1a1a; /* 💡 跑馬燈背景深灰軌道 */
             padding: 50px 0;
-            border-top: 1px solid #f0f0f0;
-            border-bottom: 1px solid #f0f0f0;
+            border-top: 1px solid #252525;
+            border-bottom: 1px solid #252525;
             margin-bottom: 20px;
         }
 
@@ -168,55 +168,58 @@
             100% { transform: translateX(-50%); }
         }
 
-.marquee-item {
-    width: 380px; 
-    height: 480px; /* 💡 統一固定卡片高度（大格） */
-    margin: 0 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    border: 1px solid #eaeaea;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    display: flex; /* 💡 改用 flex 排版 */
-    flex-direction: column; /* 💡 讓內容從上往下排 */
-    justify-content: space-between; /* 💡 關鍵：把圖片推在最上，文字死死壓在最下面 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
+        /* 💡 統一固定大格卡片樣式（暗黑卡片化） */
+        .marquee-item {
+            width: 380px; 
+            height: 480px; 
+            margin: 0 20px;
+            background: #1e1e1e; /* 💡 卡片背景深灰色 */
+            border-radius: 12px;
+            border: 1px solid #2d2d2d; /* 💡 低調暗邊框 */
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; /* 💡 圖片在最上，文字死死壓在最下面 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
 
         .marquee-item:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(230, 35, 40, 0.1);
-            border-color: #f1d7d7;
+            box-shadow: 0 12px 30px rgba(230, 35, 40, 0.25); /* 霓虹霓紅懸停高光 */
+            border-color: #e62328;
         }
 
-       .item-image-box {
-    width: 100%;
-    height: 380px; /* 💡 固定圖片區域高度，下方留給文字 */
-    background-color: #f5f5f5;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .item-image-box {
+            width: 100%;
+            height: 380px; 
+            background-color: #252525; /* 💡 未傳圖格子改為夜空暗灰 */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.item-image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 💡 完整保留全圖不切圖！有空隙的地方會用淡灰色背景補滿，不突兀 */
-    display: block;
-}
+        .item-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            display: block;
+        }
 
         .item-info {
             padding: 20px;
             text-align: center;
+            background-color: #1e1e1e; /* 文字底色與卡片同調 */
+            border-top: 1px solid #2d2d2d;
         }
 
         .item-title {
             font-size: 17px;
             font-weight: 600;
-            color: #333333;
+            color: #ffffff; /* 💡 跑馬燈字體改純白 */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -236,7 +239,7 @@
 
         .section-title {
             font-size: 24px;
-            color: #111111;
+            color: #ffffff; /* 💡 標題改純白 */
             margin-bottom: 30px;
             border-left: 4px solid #e62328;
             padding-left: 12px;
@@ -249,42 +252,45 @@
             gap: 30px;
         }
 
+        /* 最新消息卡片（暗黑卡片化） */
         .grid-card {
-            background: #ffffff;
-            border: 1px solid #eeeeee;
+            background: #1e1e1e; /* 💡 卡片深灰色 */
+            border: 1px solid #2d2d2d;
             border-radius: 8px;
             padding: 28px;
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         .grid-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border-color: #444444;
         }
 
         .card-tag {
             display: inline-block;
             font-size: 12px;
-            background-color: #fff0f0;
-            color: #e62328;
+            background-color: #3a1415; /* 💡 標籤改為深紅底色 */
+            color: #ff4d52; /* 💡 亮紅字 */
             padding: 4px 10px;
             border-radius: 4px;
             font-weight: bold;
             margin-bottom: 14px;
         }
 
-        /* 最新消息卡片標題字體放大 */
+        /* 最新消息卡片標題字體 */
         .grid-card h3 {
             font-size: 22px;
             margin-bottom: 12px;
-            color: #222222;
+            color: #ffffff; /* 💡 純白 */
             font-weight: 700;
             line-height: 1.4;
         }
 
-        /* 最新消息卡片內文字體放大 */
+        /* 最新消息卡片內文字體 */
         .grid-card p {
             font-size: 16px;
-            color: #555555;
+            color: #aaaaaa; /* 💡 淡灰好讀內文 */
             line-height: 1.6;
         }
 
@@ -325,13 +331,13 @@
             font-size: 18px;
             font-weight: bold;
             border-radius: 50px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .cta-btn:hover {
             transform: scale(1.05); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
         /* RWD 手機版導覽列自適應優化 */
@@ -348,16 +354,13 @@
 </head>
 <body>
 
-    <!-- 頂部導覽列（💡 整合右側經典 Tabs 功能選單） -->
     <header class="site-header">
         <div class="header-container">
-            <!-- 左側 Logo 區 -->
             <div class="logo-area">
                 <img src="logo.png" alt="XCITY" class="site-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <span class="logo-fallback" style="display:none;">X CITY</span>
             </div>
             
-            <!-- 💡 右側 Tabs 選單區：精準導流核心頁面 -->
             <nav class="header-nav">
                 <a href="https://tc.xcity.jp/main" class="nav-tab" target="_blank">官方網站</a>
                 <a href="https://regist.xcity.jp/t-chinese/member/login.php" class="nav-tab highlight" target="_blank">手刀註冊</a>
@@ -410,7 +413,6 @@
             </div>
         </section>
 
-        <!-- 最底部的強力行動呼籲 CTA 區塊 -->
         <section class="cta-section">
             <div class="cta-container">
                 <h2>準備好探索極致的娛樂饗宴了嗎？</h2>
@@ -422,7 +424,7 @@
 
     <script>
         /* ==========================================
-           2. JavaScript 內容配置區
+           2. JavaScript 內容配置區 (完美保留你的真實圖片網址與跳轉)
            ========================================== */
         const marqueeData = [
             {
@@ -457,7 +459,8 @@
             if (!track) return;
 
             function createItemHtml(item, index) {
-                const placeholderImg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 360 210'><defs><linearGradient id='g${index}' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23f9f9f9'/><stop offset='100%' stop-color='%23e9e9e9'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g${index})'/><text x='50%' y='55%' font-size='16' font-weight='bold' text-anchor='middle' fill='%23e62328' opacity='0.7'>XCITY ITEM 0${index + 1}</text></svg>`;
+                /* 💡 預設 SVG 格子也同步暗黑化為 #252525，保持未填圖時的視覺和諧 */
+                const placeholderImg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 360 210'><defs><linearGradient id='g${index}' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23252525'/><stop offset='100%' stop-color='%231a1a1a'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g${index})'/><text x='50%' y='55%' font-size='16' font-weight='bold' text-anchor='middle' fill='%23e62328' opacity='0.7'>XCITY ITEM 0${index + 1}</text></svg>`;
                 const imgUrl = item.imageUrl || placeholderImg;
 
                 return `
