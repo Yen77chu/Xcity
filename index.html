@@ -63,7 +63,7 @@
 
         /* 主內容區 */
         .main-content {
-            padding: 60px 0;
+            padding: 60px 0 0 0; /* 底部留給 CTA 區塊滿版 */
         }
 
         .welcome-section {
@@ -83,24 +83,24 @@
             font-size: 18px;
         }
 
-        /* 🎬 頂部主要影片區塊樣式（修正：放大且自動符合影片比例） */
+        /* 🎬 頂部主要影片區塊樣式（放大且自動符合影片比例） */
         .hero-video-section {
             width: 90%;
-            max-width: 1200px; /* 💡 從 960px 放大到 1200px，讓畫面更大氣 */
+            max-width: 1200px; 
             margin: 0 auto 60px auto;
         }
 
         .video-wrapper {
             width: 100%;
-            border-radius: 16px; /* 圓角 */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* 質感陰影 */
+            border-radius: 16px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
             overflow: hidden;
-            background-color: #ffffff; /* 💡 背景改為白底，避免黑邊干擾 */
+            background-color: #ffffff; 
         }
 
         .video-wrapper video {
             width: 100%;
-            height: auto; /* 💡 自動符合你影片原汁原味的尺寸與長寬比 */
+            height: auto; 
             display: block;
             object-fit: contain;
         }
@@ -192,7 +192,7 @@
         .custom-section {
             width: 90%;
             max-width: 1200px;
-            margin: 80px auto 40px auto;
+            margin: 80px auto 80px auto;
         }
 
         .section-title {
@@ -214,7 +214,7 @@
             background: #ffffff;
             border: 1px solid #eeeeee;
             border-radius: 8px;
-            padding: 25px;
+            padding: 28px;
             transition: box-shadow 0.3s ease;
         }
 
@@ -230,19 +230,69 @@
             padding: 4px 10px;
             border-radius: 4px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
+        /* 💡 修正：最新消息卡片標題字體放大（從 18px 放大到 22px） */
         .grid-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 12px;
             color: #222222;
+            font-weight: 700;
+            line-height: 1.4;
         }
 
+        /* 💡 修正：最新消息卡片內文字體放大（從 14px 放大到 16px） */
         .grid-card p {
-            font-size: 14px;
-            color: #666666;
+            font-size: 16px;
+            color: #555555;
             line-height: 1.6;
+        }
+
+        /* 🌟 新增樣式：最底部的滿版強力 CTA 區塊 */
+        .cta-section {
+            background-color: #e62328; /* 品牌正紅底色 */
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .cta-container p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #e62328;
+            text-decoration: none;
+            padding: 16px 45px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px; /* 膠囊形狀大按鈕 */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05); /* 移上去微放大 */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
         }
     </style>
 </head>
@@ -297,6 +347,14 @@
                     <h3>註冊會員馬上享有三十天免費觀看</h3>
                     <p>現在加入會員，立刻免費暢享全站付費內容 30 天。</p>
                 </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>準備好探索極致的娛樂饗宴了嗎？</h2>
+                <p>現在加入 XCITY 會員，尊享 30 天全站內容免費暢看，天天精彩更新不間斷！</p>
+                <a href="https://regist.xcity.jp/t-chinese/member/login.php" class="cta-btn" target="_blank">立即免費註冊</a>
             </div>
         </section>
     </main>
